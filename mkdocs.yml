@@ -1,5 +1,5 @@
-site_name: サーバ管理研修の教科書
-copyright: Copyright &copy; 2026 システム技研株式会社
+site_name: Java実習用システムドキュメント
+copyright: Copyright &copy; 2023-2026 システム技研株式会社
 theme:
     name: material
     language: ja
@@ -38,6 +38,7 @@ markdown_extensions:
     - meta
     - toc:
           toc_depth: 1-2
+    - def_list
     - admonition
     - pymdownx.keys
     - pymdownx.details:
