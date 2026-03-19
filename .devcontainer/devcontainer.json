@@ -1,23 +1,33 @@
 {
-	"name": "JavaTraining",
-	"image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
-	"features": {
-		"ghcr.io/devcontainers/features/java:latest": {
-			"version": "none",
-			"installMaven": "false",
-			"installGradle": "true"
-		}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"vscjava.vscode-java-pack",
-				"vscjava.vscode-maven",
-				"vscjava.vscode-spring-boot-dashboard",
-				"vscjava.vscode-spring-initializr",
-				"vmware.vscode-spring-boot",
-				"mhutchie.git-graph"
-			]
-		}
-	}
+    "name": "JavaTraining",
+    "image": "mcr.microsoft.com/devcontainers/java:25",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "none",
+            "installMaven": "true",
+            "installGradle": "false"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "latest"
+        },
+        "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-maven",
+                "vscjava.vscode-spring-boot-dashboard",
+                "vscjava.vscode-spring-initializr",
+                "vmware.vscode-spring-boot",
+                "mhutchie.git-graph"
+            ],
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/setup-aiagent.sh"
 }

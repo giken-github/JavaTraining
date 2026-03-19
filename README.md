@@ -8,7 +8,7 @@
   - Thymeleaf
 - Spring Validation
 - Spring Security
-- Spring Data JPA
+- Spring JDBC
   - H2 Database 
   - PosgreSQL Driver
 - Lombok
@@ -20,14 +20,19 @@
 本プロジェクトの開発をするには以下のソフトウエアが必要です。
 公式サイトからダウンロードしてインストールしてください。
 
-- Java Development Kit (JDK) 17 以降
-  - [Oracle Java SE](https://www.oracle.com/jp/java/technologies/java-se-glance.html)
-  - [Amazon Corrette](https://aws.amazon.com/jp/corretto)
-  - [Eclipse Temurin](https://adoptium.net/temurin/releases/)
-- IDEもしくはテキストエディタ
-  - [Eclopse](https://www.eclipse.org/downloads/)
-    - [Pleiades](https://willbrains.jp/) - Pleiades All in One - Eclipse日本語化プラグイン＋α
-  - [Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code)
+### Java Development Kit (JDK) 25 以降
+
+- [Oracle Java SE](https://www.oracle.com/jp/java/technologies/java-se-glance.html)
+- [Amazon Corrette](https://aws.amazon.com/jp/corretto)
+- [Eclipse Temurin](https://adoptium.net/temurin/releases/)
+
+### IDEもしくはテキストエディタ
+
+- [Eclopse](https://www.eclipse.org/downloads/)
+  - [Pleiades](https://willbrains.jp/) - Pleiades All in One - Eclipse日本語化プラグイン＋α
+- [Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code)
+
+### その他
 - [Git for Windows](https://gitforwindows.org/)
 
 ## あると良いソフトウエア

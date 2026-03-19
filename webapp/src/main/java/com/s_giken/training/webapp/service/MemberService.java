@@ -17,11 +17,13 @@ import com.s_giken.training.webapp.model.entity.MemberSearchCondition;
 public interface MemberService {
     public List<Member> findAll();
 
-    public Optional<Member> findById(int memberId);
+    public Optional<Member> findById(Long memberId);
 
     public List<Member> findByConditions(MemberSearchCondition memberSearchCondition);
 
-    public void save(Member member);
+    public void add(Member member);
 
-    public void deleteById(int memberId);
+    public void update(Member member);
+
+    public void deleteById(Long memberId);
 }

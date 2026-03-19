@@ -2,9 +2,11 @@ package com.s_giken.training.webapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -30,23 +32,22 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // CSRF対策を無効化
+                .csrf(Customizer.withDefaults())
                 .headers((header) -> header
                         .frameOptions((frame) -> frame.disable()))
                 .formLogin((form) -> form
-                        .defaultSuccessUrl("/")
-                        .loginProcessingUrl("/login")
                         .loginPage("/login")
-                        .failureUrl("/login?error")
                         .permitAll())
-                .logout((logout) -> logout
-                        .logoutSuccessUrl("/"))
+                .logout(LogoutConfigurer::permitAll)
                 .authorizeHttpRequests((authorize) -> authorize
                         // 特例として認証を無視するURL
                         .requestMatchers(
                                 PathPatternRequestMatcher
                                         .withDefaults()
                                         .matcher("/h2-console/**"),
+                                PathPatternRequestMatcher
+                                        .withDefaults()
+                                        .matcher("/.well-known/**"),
                                 PathPatternRequestMatcher
                                         .withDefaults()
                                         .matcher("/image/**"),

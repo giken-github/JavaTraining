@@ -1,0 +1,7 @@
+nav:
+  - 課題一覧: assignment.md
+  - 要件定義: 00_rfp.md
+  - 基本設計書: 01_basic_spec.md
+  - 詳細設計書: 02_detail_spec.md
+  - バッチ設計書: 03_batch_spec.md
+  - データテーブル: 09_dbtable.md
