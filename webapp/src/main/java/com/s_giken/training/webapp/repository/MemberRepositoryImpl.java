@@ -15,6 +15,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     private final JdbcTemplate jdbcTemplate;
     private final RowMapper<Member> rowMapper;
+
     public MemberRepositoryImpl(JdbcTemplate jdbcTemplate, RowMapper<Member> rowMapper) {
         this.jdbcTemplate = jdbcTemplate;
         this.rowMapper = rowMapper;
@@ -77,7 +78,7 @@ public class MemberRepositoryImpl implements MemberRepository {
     public int add(Member member) {
         Long memberId = member.getMemberId();
         if (memberId == null) {
-            memberId = jdbcTemplate.queryForObject("SELECT NEXT VALUE FOR t_member_seq", Long.class);
+            memberId = jdbcTemplate.queryForObject("SELECT nextval('t_member_seq')", Long.class);
             member.setMemberId(memberId);
         }
 
@@ -127,8 +128,7 @@ public class MemberRepositoryImpl implements MemberRepository {
     public int update(Member member) {
         String sql = """
                     UPDATE T_MEMBER
-                    SET
-                        mail = ?,
+                    SET mail = ?,
                         name = ?,
                         address = ?,
                         start_date = ?,
