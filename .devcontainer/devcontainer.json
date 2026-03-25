@@ -7,9 +7,6 @@
         "ghcr.io/devcontainers/features/node:1": {
             "version": "latest"
         },
-        "ghcr.io/devcontainers/features/python:1": {
-            "version": "latest"
-        },
         "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
             "version": "latest"
         }
@@ -21,7 +18,7 @@
                 "vscjava.vscode-maven",
                 "vscjava.vscode-spring-boot-dashboard",
                 "vscjava.vscode-spring-initializr",
-                "vmware.vscode-spring-boot",
+                "vmware.vscode-spring-boot"
             ]
         }
     },
