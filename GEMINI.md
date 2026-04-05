@@ -60,7 +60,7 @@ Containerized dev environment based on Ubuntu 24.04 for use with VSCode Dev Cont
 
 **Database**: PostgreSQL starts automatically.
 
-- User: `postgres` / Password: `postgres` / Database: `postgres`
+- Hostname: `database` / User: `trainingapp` / Password: `trainingapp` / Database: `trainingapp`
 
 ## Development Conventions
 
