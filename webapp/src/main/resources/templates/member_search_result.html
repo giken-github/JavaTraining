@@ -6,21 +6,17 @@
   <!--/*
         加入者情報検索結果表示画面
     */-->
-  <div class="row">
-    <div class="col-auto">
-      <a class="btn btn-secondary" th:href="@{/member/search}">戻る</a>
-    </div>
-  </div>
-  <table class="table table-striped">
+  <a role="button" class="secondary" th:href="@{/member/search}">戻る</a>
+  <table>
     <thead>
       <tr>
-        <td>加入者番号</td>
-        <td>メールアドレス</td>
-        <td>氏名</td>
-        <td>住所</td>
-        <td>加入日</td>
-        <td>解約日</td>
-        <td>支払方法</td>
+        <th>加入者番号</th>
+        <th>メールアドレス</th>
+        <th>氏名</th>
+        <th>住所</th>
+        <th>加入日</th>
+        <th>解約日</th>
+        <th>支払方法</th>
       </tr>
     </thead>
     <tbody>
@@ -36,9 +32,7 @@
         <td th:text="${row.paymentMethod.displayName}"></td>
       </tr>
       <tr th:if="${#lists.isEmpty(result)}">
-        <td colspan="7">
-          <div class="text-center lh-lg">該当する情報が見つかりませんでした。</div>
-        </td>
+        <td colspan="7" class="no-result">該当する情報が見つかりませんでした。</td>
       </tr>
     </tbody>
   </table>

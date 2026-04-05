@@ -4,7 +4,7 @@
 
 ### Coding Style
 
-Style definition: `extra/eclipse-java-google-style-custom.xml` (Google Java Style Guide with customizations)
+Style definition: `extra/eclipse-ustom.xml` (Google Java Style Guide with customizations)
 
 - **Indentation**: 4 spaces (differs from Google's 2). Continuation indent adds 2 more levels.
 - **Max line length**: 100 characters.
@@ -15,15 +15,15 @@ Style definition: `extra/eclipse-java-google-style-custom.xml` (Google Java Styl
 
 ### Naming Conventions
 
-| Target | Format | Rules |
-|---|---|---|
-| Package | all lowercase | `com.s_giken.training.{app}.{layer}` |
-| Class/Interface | UpperCamelCase | Suffix: `XxxController`, `XxxService`, `XxxServiceImpl`, `XxxRepository`; Entity: descriptive noun |
-| Method | lowerCamelCase | `verb + object` format (e.g., `searchAndListing`) |
-| Variable | lowerCamelCase | No abbreviations; meaningful names |
-| Constant | SCREAMING_SNAKE_CASE | Applied to `public static final` fields |
-| DB Table | `T_` + UPPER_SNAKE | e.g., `T_MEMBER` |
-| DB Column | snake_case | e.g., `member_id`, `start_date` |
+| Target          | Format               | Rules                                                                                              |
+| --------------- | -------------------- | -------------------------------------------------------------------------------------------------- |
+| Package         | all lowercase        | `com.s_giken.training.{app}.{layer}`                                                               |
+| Class/Interface | UpperCamelCase       | Suffix: `XxxController`, `XxxService`, `XxxServiceImpl`, `XxxRepository`; Entity: descriptive noun |
+| Method          | lowerCamelCase       | `verb + object` format (e.g., `searchAndListing`)                                                  |
+| Variable        | lowerCamelCase       | No abbreviations; meaningful names                                                                 |
+| Constant        | SCREAMING_SNAKE_CASE | Applied to `public static final` fields                                                            |
+| DB Table        | `T_` + UPPER_SNAKE   | e.g., `T_MEMBER`                                                                                   |
+| DB Column       | snake_case           | e.g., `member_id`, `start_date`                                                                    |
 
 ### Syntactic Constraints
 
@@ -51,6 +51,7 @@ Containerized dev environment based on Ubuntu 24.04 for use with VSCode Dev Cont
 **Getting started**: Clone repo → Open in VSCode → "Reopen in Container"
 
 **Compile (Maven Wrapper)**:
+
 ```bash
 ./mvnw clean compile        # entire project
 ./mvnw -pl webapp compile   # webapp only
@@ -58,7 +59,8 @@ Containerized dev environment based on Ubuntu 24.04 for use with VSCode Dev Cont
 ```
 
 **Database**: PostgreSQL starts automatically.
-- User: `postgres` / Password: `postgres` / Database: `postgres`
+
+- Hostname: `database` / User: `trainingapp` / Password: `trainingapp` / Database: `trainingapp`
 
 ## Development Conventions
 

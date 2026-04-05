@@ -14,7 +14,7 @@ import com.s_giken.training.webapp.exception.NotFoundException;
 import com.s_giken.training.webapp.model.PaymentMethod;
 import com.s_giken.training.webapp.model.entity.Member;
 import com.s_giken.training.webapp.model.entity.MemberSearchCondition;
-import com.s_giken.training.webapp.service.MemberService;
+import com.s_giken.training.webapp.service.IMemberService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,14 +28,14 @@ import org.springframework.validation.annotation.Validated;
 @Controller // コントローラークラスであることを示す
 @RequestMapping("/member") // リクエストパスを指定
 public class MemberController {
-    private final MemberService memberService;
+    private final IMemberService memberService;
 
     /**
      * 加入者管理機能のコントローラークラスのコンストラクタ
      * 
      * @param memberService 加入者管理機能のサービスクラス(SpringのDIコンテナから渡される)
      */
-    public MemberController(MemberService memberService) {
+    public MemberController(IMemberService memberService) {
         this.memberService = memberService;
     }
 

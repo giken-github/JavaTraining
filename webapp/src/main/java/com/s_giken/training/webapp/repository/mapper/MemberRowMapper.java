@@ -20,10 +20,10 @@ import com.s_giken.training.webapp.model.entity.Member;
 public class MemberRowMapper implements RowMapper<Member> {
     /**
      * マッピング処理を行うメソッド
-     * 
+     *
      * @param rs     データベースからのレコードセット
      * @param rowNum 処理行数
-     * 
+     *
      * @return Memberオブジェクト
      */
     @Override
@@ -43,14 +43,11 @@ public class MemberRowMapper implements RowMapper<Member> {
         Date endDate = rs.getDate("end_date");
         member.setEndDate((endDate != null) ? endDate.toLocalDate() : null);
 
-        // 被払い方法は、TINYINT型で格納されている。その値から PaymentMethod列挙型に変換する。
-        Byte paymentMethod = rs.getByte("payment_method");
-        if (paymentMethod != null) {
-            try {
-                member.setPaymentMethod(PaymentMethod.fromCode(paymentMethod));
-            } catch (IllegalArgumentException e) {
-                member.setPaymentMethod(PaymentMethod.UNKNOWN);
-            }
+        // 支払い方法は INT 型で格納されている。その値から PaymentMethod 列挙型に変換する。
+        try {
+            member.setPaymentMethod(PaymentMethod.fromCode(rs.getInt("payment_method")));
+        } catch (IllegalArgumentException e) {
+            member.setPaymentMethod(PaymentMethod.UNKNOWN);
         }
 
         member.setCreatedAt(rs.getTimestamp("created_at"));

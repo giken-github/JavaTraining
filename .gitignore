@@ -35,3 +35,8 @@ out/
 
 # mkdocs
 site/
+.venv/
+.mypy*/
+
+# Others
+.claude

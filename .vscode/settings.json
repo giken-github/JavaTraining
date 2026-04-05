@@ -18,7 +18,7 @@
     ],
     // "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
     "java.format.settings.url": "file://${workspaceFolder}/extra/eclipse-custom.xml",
-    "java.format.settings.profile": "GoogleStyle",
+    "java.format.settings.profile": "EclipseCustomized",
     "editor.formatOnSave": true,
     "spring-boot.ls.problem.version-validation.UPDATE_LATEST_MINOR_VERSION": "IGNORE",
     "spring-boot.ls.problem.version-validation.UPDATE_LATEST_PATCH_VERSION": "IGNORE",

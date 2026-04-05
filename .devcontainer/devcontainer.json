@@ -1,20 +1,17 @@
 {
     "name": "JavaTraining",
-    "image": "mcr.microsoft.com/devcontainers/java:25",
+    "dockerComposeFile": "compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "features": {
-        "ghcr.io/devcontainers/features/java:1": {
-            "version": "none",
-            "installMaven": "true",
-            "installGradle": "false"
-        },
         "ghcr.io/devcontainers/features/node:1": {
-            "version": "latest"
-        },
-        "ghcr.io/devcontainers/features/python:1": {
             "version": "latest"
         },
         "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
             "version": "latest"
+        },
+        "ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {
+            "version": "18"
         }
     },
     "customizations": {
@@ -24,9 +21,8 @@
                 "vscjava.vscode-maven",
                 "vscjava.vscode-spring-boot-dashboard",
                 "vscjava.vscode-spring-initializr",
-                "vmware.vscode-spring-boot",
-                "mhutchie.git-graph"
-            ],
+                "vmware.vscode-spring-boot"
+            ]
         }
     },
     "postCreateCommand": "bash .devcontainer/setup-aiagent.sh"
