@@ -1,6 +1,8 @@
 services:
   devcontainer:
-    image: mcr.microsoft.com/devcontainers/java:25
+    build:
+      context: .
+      dockerfile: Dockerfile.devcontainer
     volumes:
       - type: bind
         source: ../..
