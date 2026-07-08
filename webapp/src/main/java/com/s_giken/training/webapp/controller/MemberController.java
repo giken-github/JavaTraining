@@ -75,8 +75,7 @@ public class MemberController {
      * @return 加入者検索結果画面のテンプレート名
      */
     @PostMapping("/search")
-    public String searchAndListing(
-            @ModelAttribute("memberSearchCondition") MemberSearchCondition memberSearchCodition,
+    public String searchAndListing(@ModelAttribute("memberSearchCondition") MemberSearchCondition memberSearchCodition,
             Model model) {
         var result = memberService.findByConditions(memberSearchCodition);
         model.addAttribute("result", result);
@@ -91,9 +90,7 @@ public class MemberController {
      * @return 加入者編集画面のテンプレート名
      */
     @GetMapping("/edit/{id}")
-    public String editMember(
-            @PathVariable Long id,
-            Model model) {
+    public String editMember(@PathVariable Long id, Model model) {
         var member = memberService.findById(id);
         if (!member.isPresent()) {
             throw new NotFoundException(String.format("指定したmemberId(%d)の加入者情報が存在しません。", id));
@@ -127,11 +124,12 @@ public class MemberController {
      */
     @PostMapping("/add")
     @Transactional
-    public String addMember(
-            @Validated Member member,
+    public String addMember(@Validated Member member,
             BindingResult bindingResult,
-            RedirectAttributes redirectAttributes) {
+            RedirectAttributes redirectAttributes,
+            Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("isAddMode", true);
             return "member_edit";
         }
         memberService.add(member);
@@ -149,8 +147,7 @@ public class MemberController {
      */
     @PostMapping("/update")
     @Transactional
-    public String saveMember(
-            @Validated Member member,
+    public String saveMember(@Validated Member member,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
@@ -170,9 +167,7 @@ public class MemberController {
      */
     @GetMapping("/delete/{id}")
     @Transactional
-    public String deleteMember(
-            @PathVariable Long id,
-            RedirectAttributes redirectAttributes) {
+    public String deleteMember(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         var member = memberService.findById(id);
         if (!member.isPresent()) {
             throw new NotFoundException(String.format("指定したmemberId(%d)の加入者情報が存在しません。", id));
