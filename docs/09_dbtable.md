@@ -101,8 +101,7 @@
 
 **外部キー制約**
 
-- `billing_ym` → T_BILLING_DATA(`billing_ym`)
-- `member_id` → T_BILLING_DATA(`member_id`)
+- `(billing_ym, member_id)` → T_BILLING_DATA(`billing_ym`, `member_id`)
 
 ## 請求データ状況◆T_BILLING_STATUS
 

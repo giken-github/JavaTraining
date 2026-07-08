@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td>表示</td>
-<td>テキストで表示する</td>
+<td>YYYY/MM/DD形式のテキストで表示する</td>
 </tr>
 <tr>
 <td rowspan="2">解約日</td>
